@@ -1,0 +1,35 @@
+<div id="sidebar">sidebar</div>
+  <div id="main">
+	<div id="bill">
+      <% @posts.each do |post| %>
+     <b>username:</b><%= post.user.username %>
+     <b>title:</b><%= link_to_unless_current post.title, post %>
+     <b>content:</b><%=post.content %>
+     <b>Category:</b>
+  <%=case post.category
+                         when 0
+                                     "日志"
+                         when 1
+                                    "技术"
+                         when 2
+                                     "转载"
+                              else "无"
+       end %>
+    <br/>
+<% end %>
+<br/>
+
+ <!--标签云-->
+    <div style="padding:20px">
+    tags: <% tag_cloud @tags, %w(css1 css2 css3 css4) do |tag, css_class| %>
+    <%= link_to tag.name, {:action => :tag, :id => tag.name }, :class => css_class %>
+     <% end %>
+</div>
+<%= paginate @posts %>
+</div>
+
+    <div id="help">help</div>
+    <div id="tags">tags</div>
+    <div id="sort">sort</div>
+
+</div>

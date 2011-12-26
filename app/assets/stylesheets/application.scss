@@ -1,0 +1,121 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree .
+*/
+
+html {
+  width: 100%;
+  height: 100%;
+  display: table;
+  background:#eee image-url('bg.png') bottom left repeat;
+}
+
+body{
+ width:900px;
+ margin:0 auto;
+}
+#top{
+ width:900px;
+ height:40px;
+  background:#111 url("top.png") top repeat-x;
+}
+#navigation{ float:left; height:40px; line-height:40px; font-size:18px;}
+#navigation ul li{ float:left; display:inline; margin-right:15px; }
+#navigation ul li a{ height:25px; line-height:25px; color:#BABABA;}
+#navigation ul li.active a{ font-weight:bold; color:#FFF;}
+
+.box {
+  background-color: #fff;
+  padding:10px;
+  margin: 0 0 20px 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+#sidebar{
+ width:200px;
+ height:1000px;
+ background:#06f;
+ float:left;
+}
+
+#main{
+ width:700px;
+ height:1000px;
+ background:#fff;
+ float:left;
+}
+
+#content{
+ width:570px;
+ height:602px;
+ background:orange;
+ float:left;
+ margin:0 4px 5px 4px;
+}
+
+
+#help{
+ width:120px;
+ height:301px;
+ background:red;
+ float:left;
+}
+
+#tags{
+  width:120px;
+ height:296px;
+ background:yellow;
+ margin:0 0 5px 0;
+ float:left;
+}
+
+#special{
+ width:346px;
+ height:212px;
+ background:lightblue;
+ float:left;
+ margin:0 4px 5px 4px;
+}
+#newpro{
+ width:696px;
+ height:157px;
+ background:lightgreen;
+ float:left;
+ margin:0 0 5px 0;
+}
+
+#channel{
+ width:696px;
+ height:212px;
+ background:orange;
+ float:left;
+ margin:0 0 5px 0;
+}
+
+#sort{
+ width:696px;
+ height:243px;
+ background:#ccc;
+ float:left;
+}
+
+#footer{
+ width:900px;
+ height:164;
+ background:#fff;
+ clear:both;
+ text-align:center;
+}
+
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }

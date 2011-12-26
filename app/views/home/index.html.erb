@@ -1,0 +1,39 @@
+<div id="sidebar">sidebar</div>
+  <div id="main">
+	<div id="content">
+      <% @posts.each do |post| %>
+
+     <strong><%= link_to_unless_current post.title, post %></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <%= post.comments.count %><br/>
+     由:<%= post.user.username %>在
+  <%=case post.category
+                         when 0
+                                     "日志"
+                         when 1
+                                    "技术"
+                         when 2
+                                     "转载"
+                              else "无"
+       end %>中发起
+    <br/>
+<% end %>
+<br/>
+<%= paginate @posts %>
+</div>
+
+    <div id="tags"><!--标签云-->
+    TAGS: <% tag_cloud @tags, %w(css1 css2 css3 css4) do |tag, css_class| %>
+      &nbsp;&nbsp;
+    <%= link_to tag.name, {:action => :tag, :id => tag.name }, :class => css_class %>
+     <% end %></div>
+
+     <div id="help">
+      <ul>
+        <li><%=link_to' 关于本站'%></li>
+        <li><%=link_to' 意见反馈'%></li>
+        <li><%=link_to' bug修复'%></li>
+      </ul>
+    </div>
+    <div id="sort">sort</div>
+
+</div>

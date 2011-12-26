@@ -1,0 +1,36 @@
+<%= form_for(@post) do |post_form| %>
+  <% if @post.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= post_form.label :title %><br />
+    <%= post_form.text_field :title %>
+  </div>
+
+   <div class="field">
+    <%= post_form.label :category %>
+    <%= post_form.select(:category,options_for_select({ "日志" => "0", "技术" => "1","转载" => "2"})) %>
+  </div>
+
+  <div class="field">
+    <%= post_form.label :content %><br />
+    <%= post_form.text_area :content, :cols =>25, :rows => 10%>
+  </div>
+
+     <div class="field">
+    <%= post_form.label :tags,'标签' %><br />
+    <%= post_form.text_field :tag_list,:size=>'40' %>*多个标签以","隔开
+    </div>
+
+  <div class="actions">
+    <%= post_form.submit %>
+  </div>
+<% end %>

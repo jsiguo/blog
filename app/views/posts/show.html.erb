@@ -1,0 +1,43 @@
+<p><strong><%= @post.title %></strong></p>
+<br/>
+ <p>
+  <%= @post.content %>
+</p>
+  <%= time_ago_in_words(@post.created_at) %>由<%= @post.user.username %>在
+<%=case @post.category
+                         when 0
+                                     "日志"
+                         when 1
+                                    "技术"
+                         when 2
+                                     "转载"
+                              else "无"
+        end %>中发起
+
+<br/><br/><br/><br/><br/><br/>
+<div id="total">共有<%= (@post.comments.count)%>条回复<br/></div>
+
+
+<table id="comments">
+  <tr>
+  <td>username</td>
+  <td>content</td>
+  <td>time</td>
+  <td>operation</td>
+</tr>
+      <%= render @post.comments%>
+  </table>
+
+<h2>Add a comment:</h2> <br/>
+<%= form_for([@post,@post.comments.build], :remote=>true) do |f| %>
+<div class="field">
+    <%= f.text_area :body, :cols => 20, :rows => 10%>
+</div>
+<div class="actions">
+    <%= f.submit %>
+</div>
+
+<% end %>
+<br />
+<%= link_to 'Edit Post', edit_post_path(@post) %> |
+<%= link_to 'Back to Posts', posts_path %>

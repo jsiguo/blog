@@ -1,0 +1,44 @@
+<h1>Listing posts</h1>
+<br />
+<%= link_to 'New Post', new_post_path %>
+<br/>
+
+<% @posts.each do |post| %>
+    <b>username:</b><%= post.user.username %>
+     <b>title:</b><%= link_to_unless_current post.title, post %>
+     <b>content:</b><%=post.content %>
+     <b>Category:</b>
+  <%=case post.category
+                         when 0
+                                     "日志"
+                         when 1
+                                    "技术"
+                         when 2
+                                     "转载"
+                              else "无"
+       end %>
+
+ <b>评论数量: </b><%= post.comments.count %>
+
+     <%= link_to 'Edit', edit_post_path(post) %>|
+     <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>
+
+      </p>
+<% end %>
+<br/>
+
+ <!--标签云-->
+    <div style="padding:20px">
+    tags: <% tag_cloud @tags, %w(css1 css2 css3 css4) do |tag, css_class| %>
+    <%= link_to tag.name, {:action => :tag, :id => tag.name }, :class => css_class %>
+     <% end %>
+</div>
+
+
+<%= paginate @posts , :param_name => 1%>
+<%= form_for @search, url: posts_path, method: :get do |f| %>
+    <p>search</p>
+            <%= f.label :title %>
+            <%= f.text_field :title_contains %>
+            <%= f.submit %>
+<% end %>

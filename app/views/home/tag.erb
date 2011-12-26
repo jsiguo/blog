@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <td>title</td>
+    <td>content</td>
+  </tr>
+
+<% @posts.each do |post| %>
+<tr>
+    <td><%= post.title %></td>
+    <td>content<%= post.content %></td>
+  <br/>
+</tr>
+<% end %>
+</table>
+
+<%= link_to 'Back to Home', root_path %>
