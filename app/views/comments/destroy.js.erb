@@ -1,2 +1,2 @@
 $("#<%= dom_id @comment %>").remove();
-$('<%= escape_javascript(render(:partial => "comments/countcomments")) %>').appendTo('#total');
+$('<%= escape_javascript(render(:partial => "comments/countcomments")) %>').replaceAll('#total');

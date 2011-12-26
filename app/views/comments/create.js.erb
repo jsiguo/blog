@@ -1,6 +1,8 @@
 $('<%= escape_javascript(render(:partial => @comment)) %>').appendTo('#comments').hide().fadeIn();
 $("#new_comment")[0].reset();
-$('<%= escape_javascript(render(:partial => "comments/countcomments")) %>').appendTo('#total');
+$('<%= escape_javascript(render(:partial => "comments/countcomments")) %>').replaceAll('#total');
+
+
 
 
 
