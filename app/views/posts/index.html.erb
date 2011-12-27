@@ -35,7 +35,7 @@
 </div>
 
 
-<%= paginate @posts , :param_name => 1%>
+<%= paginate @posts%>
 <%= form_for @search, url: posts_path, method: :get do |f| %>
     <p>search</p>
             <%= f.label :title %>
